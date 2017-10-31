@@ -24,8 +24,6 @@ class Client
       ])
       ->get();
 
-    print_r($this->db->getQuery());
-    die;
     if($sql){
       $r->status = 1;
       $r->msj 	 = 'Login correcto';
@@ -37,9 +35,55 @@ class Client
     return $this->json($r);
   }
 
-  private function register($d)
+  public function register($d)
   {
-    //$sql =
+    try {
+      $save = [
+        'email'         => $d->email,
+        'password'      => $d->password,
+        'name'          => $d->name,
+        'last_name'     => $d->lastname,
+        'address'       => $d->address,
+        'phone_number'  => $d->phone_number,
+        'birthday'      => $d->birthday,
+        'id_distrit'    => $d->id_distrit
+      ];
+
+      $this->validate($save);
+      $sql = $this->client->insert($save);
+
+      if($sql)
+      {
+        return $this->json([
+          'status' => 1,
+          'msj'    => 'Registrado correctamente'
+        ]);
+
+      }else{
+        return $this->json([
+          'status'  => 2,
+          'msj'     => 'Error registro db'
+        ]);
+
+      }
+    } catch (Exception $e) {
+      return $this->json([
+        'status' => 2,
+        'msj'    => 'Error al registrar',
+        'msj_details' => $e->getMessage()
+      ]);
+    }
+
+  }
+
+  private function validate($d = [])
+  {
+    foreach ($d as $k => $v) {
+      if(empty($v))
+      {
+        throw new Exception("Falta algun valor.", 1);
+      }
+    }
   }
 
   private function json($a)

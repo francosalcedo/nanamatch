@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.isil.edu.nanamatch.MainActivity">
+
+    <RelativeLayout
+    android:id="@+id/layoutLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff" >
+    <ImageView
+        android:id="@+id/imgLogo2"
+        android:layout_width="200dp"
+        android:layout_height="127dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@mipmap/bebuh" />
+    <RelativeLayout
+      android:id="@+id/layoutLogin2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="-60dp"
+      android:layout_centerHorizontal="true">
+      <TextView
+          android:id="@+id/txtLogin"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentTop="true"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="220dp"
+          android:text="Iniciar Sesión"
+          android:textColor="@color/c_background_2"
+          android:textSize="35sp" />
+      <TextView
+          android:id="@+id/txtUsername"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="280dp"
+          android:layout_marginLeft="5dp"
+          android:text="Usuario"
+          android:textColor="@color/c_background"
+          android:textSize="18sp" />
+      <EditText
+          android:id="@+id/txtUser"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@+id/txtUsername"
+          android:layout_alignLeft="@+id/txtUsername"
+          android:layout_below="@+id/txtUsername"
+          android:inputType="textEmailAddress"
+          android:text="user.login@gmail.com"
+          android:textSize="18sp"
+          android:ems="13"
+          android:textColor="#000"/>
+      <TextView
+          android:id="@+id/txtPassword"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="15dp"
+          android:layout_marginLeft="5dp"
+          android:layout_below="@+id/txtUser"
+          android:text="Contraseña"
+          android:textColor="@color/c_background"
+          android:textSize="18sp" />
+      <EditText
+          android:id="@+id/txtPass"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignStart="@+id/txtPassword"
+          android:layout_alignLeft="@+id/txtPassword"
+          android:layout_below="@+id/txtPassword"
+          android:inputType="textPassword"
+          android:text="pass123"
+          android:ems="13"
+          android:textSize="18sp"
+          android:textColor="#000"/>
+      <TextView
+          android:id="@+id/txtRegister"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/txtPass"
+          android:text="¿No tienes cuenta? Regístrate."
+          android:textColor="#000"
+          android:textSize="13dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginLeft="5dp"
+          android:layout_marginBottom="30dp" />
+      <Button
+          android:id="@+id/btnLogin"
+          android:layout_width="140dp"
+          android:layout_height="45dp"
+          android:layout_below="@+id/txtRegister"
+          android:layout_marginTop="42dp"
+          android:layout_centerHorizontal="true"
+          android:background="@mipmap/ingresar_button" />
+    </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutIntro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_background">
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="236dp"
+            android:layout_height="236dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="77dp"
+            app:srcCompat="@mipmap/bebuh" />
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Nana Match"
+            android:textColor="#fff"
+            android:textSize="40sp" />
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@color/c_background_2"
+            android:text="\n\n Bienvenido a Nana Match!\n
+Sigue los pasos para completar tu\n
+registro y poder hacer uso de nuestro\nservicio"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/btnIntro"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:background="@mipmap/boton" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

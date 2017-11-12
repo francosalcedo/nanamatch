@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.isil.edu.nanamatch.RegisterActivity">
+
+    <RelativeLayout
+        android:id="@+id/layoutRegister"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@color/c_background_2">
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutTop"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Usuario (correo electrónico)"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtUsername"
+                    android:layout_below="@+id/txtUsername"
+                    android:ems="13"
+                    android:inputType="textEmailAddress"
+                    android:text="user.login@gmail.com"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtUser"
+                    android:layout_below="@+id/txtUser"
+                    android:layout_marginTop="15dp"
+                    android:text="Contraseña"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/txtPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtPassword"
+                    android:layout_below="@+id/txtPassword"
+                    android:ems="13"
+                    android:inputType="textPassword"
+                    android:text="user.login@gmail.com"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignLeft="@+id/txtPass"
+                    android:layout_below="@+id/txtPass"
+                    android:layout_marginTop="15dp"
+                    android:text="Edad"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignLeft="@+id/txtAge"
+                    android:layout_below="@+id/txtAge"
+                    android:layout_marginTop="15dp"
+                    android:text="Sexo"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:id="@+id/layoutBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                    <Button
+                        android:id="@+id/btnMan"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@mipmap/hombre"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="40dp"/>
+
+                    <Button
+                        android:id="@+id/btnWoman"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:background="@mipmap/mujer"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="40dp"/>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layoutBottom"
+                    android:layout_marginTop="15dp"
+                    android:text="Nombre"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/lblName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtName"
+                    android:layout_below="@+id/txtName"
+                    android:ems="13"
+                    android:inputType="text"
+                    android:text="name"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                 <TextView
+                    android:id="@+id/txtLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblName"
+                    android:layout_marginTop="15dp"
+                    android:text="Apellido"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                 <EditText
+                    android:id="@+id/lblLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtLastName"
+                    android:layout_below="@+id/txtLastName"
+                    android:ems="13"
+                    android:inputType="text"
+                    android:text="last name"
+                    android:textColor="#000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblLastName"
+                    android:layout_marginTop="15dp"
+                    android:text="Teléfono"
+                    android:textColor="@color/c_background"
+                    android:textSize="18sp" />
+
+                <EditText
+                   android:id="@+id/lblPhone"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignLeft="@+id/txtPhone"
+                   android:layout_below="@+id/txtPhone"
+                   android:ems="13"
+                   android:inputType="phone"
+                   android:text="123 456 789"
+                   android:textColor="#000"
+                   android:textSize="18sp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

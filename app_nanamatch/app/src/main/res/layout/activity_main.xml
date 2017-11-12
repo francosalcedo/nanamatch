@@ -105,7 +105,9 @@
         android:id="@+id/layoutIntro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/c_background">
+        android:background="@color/c_background"
+        android:visibility="gone">
+
         <ImageView
             android:id="@+id/imgLogo"
             android:layout_width="236dp"
@@ -114,6 +116,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="77dp"
             app:srcCompat="@mipmap/bebuh" />
+
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
@@ -124,6 +127,7 @@
             android:text="Nana Match"
             android:textColor="#fff"
             android:textSize="40sp" />
+
         <TextView
             android:id="@+id/txtDescription"
             android:layout_width="match_parent"
@@ -138,6 +142,7 @@ registro y poder hacer uso de nuestro\nservicio"
             android:textAlignment="center"
             android:textColor="#fff"
             android:textSize="18sp" />
+
         <Button
             android:id="@+id/btnIntro"
             android:layout_width="140dp"

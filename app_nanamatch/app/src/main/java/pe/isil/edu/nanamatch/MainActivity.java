@@ -1,5 +1,6 @@
 package pe.isil.edu.nanamatch;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText txtUser;
     private EditText txtPass;
     private Button   btnIntro;
+    private Button   btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().hide();
 
         // Import fonts
-        final Typeface montMedium  = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Medium.ttf");
+        final Typeface montMedium    = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Medium.ttf");
         final Typeface montRegular   = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-Regular.ttf");
         final Typeface montSemiBold  = Typeface.createFromAsset(getAssets(),"fonts/Montserrat-SemiBold.ttf");
 
@@ -53,7 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtRegister     = (TextView)findViewById(R.id.txtRegister);
         txtUser         = (EditText)findViewById(R.id.txtUser);
         txtPass         = (EditText)findViewById(R.id.txtPass);
-        btnIntro        = (Button)findViewById( R.id.btnIntro);
+        btnIntro        = (Button)findViewById(R.id.btnIntro);
+        btnLogin        = (Button)findViewById(R.id.btnLogin);
 
         // Set fonts
         txtTitle.setTypeface(montMedium);
@@ -67,9 +70,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Set button listener
         btnIntro.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
         txtRegister.setOnClickListener(this);
 
         layoutIntro.setVisibility(View.VISIBLE);
+        layoutLogin.setVisibility(View.GONE);
     }
 
     @Override
@@ -78,11 +83,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnIntro:
                 layoutIntro.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_intro));
                 layoutIntro.setVisibility(view.GONE);
+                layoutLogin.setVisibility(view.VISIBLE);
                 imgLogo2.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_login));
                 layoutLogin2.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_login2));
-            break;
+                break;
+            case R.id.btnLogin:
+                break;
             case R.id.txtRegister:
-            break;
+                Intent intent = new Intent (view.getContext(), RegisterActivity.class);
+                startActivityForResult(intent, 0);
+                break;
         }
     }
 }

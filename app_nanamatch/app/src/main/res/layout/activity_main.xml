@@ -44,18 +44,19 @@
           android:text="Usuario"
           android:textColor="@color/c_background"
           android:textSize="18sp" />
-      <EditText
-          android:id="@+id/txtUser"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignStart="@+id/txtUsername"
-          android:layout_alignLeft="@+id/txtUsername"
-          android:layout_below="@+id/txtUsername"
-          android:inputType="textEmailAddress"
-          android:text="user.login@gmail.com"
-          android:textSize="18sp"
-          android:ems="13"
-          android:textColor="#000"/>
+
+        <EditText
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtUsername"
+            android:layout_alignStart="@+id/txtUsername"
+            android:layout_below="@+id/txtUsername"
+            android:ems="13"
+            android:hint="user.login@gmail.com"
+            android:inputType="textEmailAddress"
+            android:textColor="#000"
+            android:textSize="18sp" />
       <TextView
           android:id="@+id/txtPassword"
           android:layout_width="wrap_content"
@@ -66,18 +67,20 @@
           android:text="Contraseña"
           android:textColor="@color/c_background"
           android:textSize="18sp" />
-      <EditText
-          android:id="@+id/txtPass"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignStart="@+id/txtPassword"
-          android:layout_alignLeft="@+id/txtPassword"
-          android:layout_below="@+id/txtPassword"
-          android:inputType="textPassword"
-          android:text="pass123"
-          android:ems="13"
-          android:textSize="18sp"
-          android:textColor="#000"/>
+
+        <EditText
+            android:id="@+id/txtPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtPassword"
+            android:layout_alignStart="@+id/txtPassword"
+            android:layout_below="@+id/txtPassword"
+            android:ems="13"
+            android:hint="pass123"
+            android:inputType="textPassword"
+            android:text="pass123"
+            android:textColor="#000"
+ />
       <TextView
           android:id="@+id/txtRegister"
           android:layout_width="wrap_content"

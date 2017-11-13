@@ -1,22 +1,35 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
 require_once 'config.php';
 header('Content-type:application/json');
 
-$m =  $_REQUEST;
-switch ($m['m']) {
+/*
+// toda respuesta debe ser JSON
+
+echo json_encode(['a' => print_r($_REQUEST, true)]);
+die;
+
+*/
+
+$mode = explode('/', $_GET['request']);
+
+if($mode[0] == '') echo json_encode(['error' => 'no method']);
+
+switch ($mode[0]) {
 	case 'login':
 			echo $client->login( (object)[
-				'email' => $m['email'],
-				'password' => $m['password']
+				'email' => $_REQUEST['email'],
+				'password' => $_REQUEST['password']
 			]);
 		break;
 
 	case 'register':
-			echo $client->register( (object) $m);
+			echo $client->register( (object) $_REQUEST);
 		break;
 
 	case '':

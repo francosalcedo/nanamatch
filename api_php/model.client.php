@@ -7,11 +7,12 @@ class Client
 {
   private $db;
   private $client;
+  const TABLE = "Client";
 
   function __construct($config)
   {
     $this->db = new \Buki\Pdox($config);
-    $this->client = $this->db->table('Client');
+    $this->client = $this->db->table(self::TABLE);
   }
 
   public function login($d)
@@ -20,6 +21,7 @@ class Client
     $sql = $this->client->select('*')
       ->where(
       [
+        'email'     => $d->email,
         'password'  => $d->password
       ])
       ->get();
@@ -42,7 +44,7 @@ class Client
         'email'         => $d->email,
         'password'      => $d->password,
         'name'          => $d->name,
-        'last_name'     => $d->lastname,
+        'last_name'     => $d->last_name,
         'address'       => $d->address,
         'phone_number'  => $d->phone_number,
         'birthday'      => $d->birthday,
@@ -50,13 +52,16 @@ class Client
       ];
 
       $this->validate($save);
-      $sql = $this->client->insert($save);
+      $this->registerValidateEmail($d->email);
+
+      $sql = $this->db->table(self::TABLE)->insert($save);
 
       if($sql)
       {
         return $this->json([
           'status' => 1,
-          'msj'    => 'Registrado correctamente'
+          'msj'    => 'Registrado correctamente',
+          'data'   => $save
         ]);
 
       }else{
@@ -84,6 +89,24 @@ class Client
         throw new Exception("Falta algun valor.", 1);
       }
     }
+  }
+
+  private function registerValidateEmail($e)
+  {
+    if(!filter_var($e, FILTER_VALIDATE_EMAIL))
+    {
+      throw new Exception("Formato de email invalido.", 1);
+    }
+
+    $sql = $this->client->select('*')
+                        ->where('email', $e)
+                        ->get();
+
+    if($sql)
+    {
+      throw new Exception("El email ya esta registrado.", 1);
+    }
+
   }
 
   private function json($a)

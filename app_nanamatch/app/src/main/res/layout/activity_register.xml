@@ -20,6 +20,24 @@
             android:layout_height="180dp"
             android:background="@color/c_background_2">
 
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@mipmap/mujer"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:id="@+id/txtRegisterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="22sp"
+                android:text="Registro"
+                android:textColor="#fff"/>
+
         </RelativeLayout>
 
         <ScrollView
@@ -38,9 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="Usuario (correo electrónico)"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Usuario (correo electrónico)" />
 
                 <EditText
                     android:id="@+id/txtUser"
@@ -49,10 +66,10 @@
                     android:layout_alignLeft="@+id/txtUsername"
                     android:layout_below="@+id/txtUsername"
                     android:ems="13"
+                    android:fontFamily="@font/montserrat_regular"
                     android:inputType="textEmailAddress"
                     android:text="user.login@gmail.com"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
+                    android:textColor="#000" />
 
                 <TextView
                     android:id="@+id/txtPassword"
@@ -61,9 +78,8 @@
                     android:layout_alignLeft="@+id/txtUser"
                     android:layout_below="@+id/txtUser"
                     android:layout_marginTop="15dp"
-                    android:text="Contraseña"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Contraseña" />
 
                 <EditText
                     android:id="@+id/txtPass"
@@ -72,21 +88,10 @@
                     android:layout_alignLeft="@+id/txtPassword"
                     android:layout_below="@+id/txtPassword"
                     android:ems="13"
+                    android:fontFamily="@font/montserrat_regular"
                     android:inputType="textPassword"
                     android:text="user.login@gmail.com"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/txtAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignLeft="@+id/txtPass"
-                    android:layout_below="@+id/txtPass"
-                    android:layout_marginTop="15dp"
-                    android:text="Edad"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textColor="#000" />
 
                 <TextView
                     android:id="@+id/txtGenre"
@@ -95,9 +100,8 @@
                     android:layout_alignLeft="@+id/txtAge"
                     android:layout_below="@+id/txtAge"
                     android:layout_marginTop="15dp"
-                    android:text="Sexo"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Sexo" />
 
                 <RelativeLayout
                     android:id="@+id/layoutBottom"
@@ -127,9 +131,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/layoutBottom"
                     android:layout_marginTop="15dp"
-                    android:text="Nombre"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Nombre" />
 
                 <EditText
                     android:id="@+id/lblName"
@@ -138,10 +141,10 @@
                     android:layout_alignLeft="@+id/txtName"
                     android:layout_below="@+id/txtName"
                     android:ems="13"
+                    android:fontFamily="@font/montserrat_regular"
                     android:inputType="text"
                     android:text="name"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
+                    android:textColor="#000" />
 
                  <TextView
                     android:id="@+id/txtLastName"
@@ -149,9 +152,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblName"
                     android:layout_marginTop="15dp"
-                    android:text="Apellido"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Apellido" />
 
                  <EditText
                     android:id="@+id/lblLastName"
@@ -160,10 +162,31 @@
                     android:layout_alignLeft="@+id/txtLastName"
                     android:layout_below="@+id/txtLastName"
                     android:ems="13"
+                    android:fontFamily="@font/montserrat_regular"
                     android:inputType="text"
                     android:text="last name"
-                    android:textColor="#000"
-                    android:textSize="18sp" />
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblName"
+                    android:layout_marginTop="15dp"
+                    android:textAppearance="@style/loginText"
+                    android:text="Dirección" />
+
+                <EditText
+                    android:id="@+id/lblAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/txtLastName"
+                    android:layout_below="@+id/txtLastName"
+                    android:ems="13"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="text"
+                    android:text="Av.Ernesto dao, Dpto 609"
+                    android:textColor="#000" />
 
                 <TextView
                     android:id="@+id/txtPhone"
@@ -171,9 +194,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lblLastName"
                     android:layout_marginTop="15dp"
-                    android:text="Teléfono"
-                    android:textColor="@color/c_background"
-                    android:textSize="18sp" />
+                    android:textAppearance="@style/loginText"
+                    android:text="Teléfono" />
 
                 <EditText
                    android:id="@+id/lblPhone"
@@ -182,10 +204,20 @@
                    android:layout_alignLeft="@+id/txtPhone"
                    android:layout_below="@+id/txtPhone"
                    android:ems="13"
+                   android:fontFamily="@font/montserrat_regular"
                    android:inputType="phone"
                    android:text="123 456 789"
-                   android:textColor="#000"
-                   android:textSize="18sp" />
+                   android:textColor="#000" />
+
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="140dp"
+                    android:layout_height="33dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@+id/lblPhone"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="40dp"
+                    android:background="@mipmap/register_button" />
 
             </LinearLayout>
         </ScrollView>

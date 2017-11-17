@@ -45,9 +45,9 @@ class Client
         'password'      => $d->password,
         'name'          => $d->name,
         'last_name'     => $d->last_name,
+	'genre'		=> $d->genre,
         'address'       => $d->address,
         'phone_number'  => $d->phone_number,
-        'birthday'      => $d->birthday,
         'id_distrit'    => $d->id_distrit
       ];
 

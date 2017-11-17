@@ -19,7 +19,7 @@ import java.util.Map;
 import pe.isil.edu.nanamatch.util.GlobalConstants;
 
 /**
- * Created by francosalcedo on 12/11/17.
+ * Created by grgrou & ernestogaspard on 17/11/17.
  */
 
 public class Register {
@@ -65,8 +65,8 @@ public class Register {
         this.listener = l;
     }
 
-    public JSONObject register(Context contextThis, final String email, final String password, final String name, final String last_name
-    ,final String address, final String phone_number, final String birthday, final String id_distrit)
+    public JSONObject register(Context contextThis, final String email, final String password, final String name, final String last_name, final String genre
+    ,final String address, final String phone_number, final String id_distrit)
     {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, GlobalConstants.API_URL + GlobalConstants.API_METHOD_REGISTER,
                 new Response.Listener<String>() {
@@ -89,9 +89,9 @@ public class Register {
                 params.put("password", password);
                 params.put("name", name);
                 params.put("last_name", last_name);
+                params.put("genre",genre);
                 params.put("address", address);
                 params.put("phone_number", phone_number);
-                params.put("birthday",birthday);
                 params.put("id_distrit",id_distrit);
                 return params;
             }

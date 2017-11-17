@@ -3,6 +3,7 @@ package pe.isil.edu.nanamatch;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,12 +19,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button  btnBack;
     private Button  btnRegister;
 
-    private EditText txtUser;   //email
+    private EditText txtUser;
     private EditText txtPass;
     private EditText lblName;
     private EditText lblLastName;
     private EditText lblAddress;
     private EditText lblPhone;
+
+    private Button  btnMan;
+    private Button  btnWoman;
+
+    private String genre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +47,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         lblAddress  = (EditText)findViewById(R.id.lblAddress);
         lblPhone    = (EditText)findViewById(R.id.lblPhone);
 
+        btnMan      = (Button)findViewById(R.id.btnMan);
+        btnWoman    = (Button)findViewById(R.id.btnWoman);
 
         // Set button listener
         btnBack.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
+
+        btnMan.setOnClickListener(this);
+        btnWoman.setOnClickListener(this);
 
         // Animations
 
@@ -59,7 +70,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnRegister:
                 Register register = new Register();
                 register.addConnectionListener(this);
-                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), lblAddress.getText().toString(), lblPhone.getText().toString(), "12", "2");
+                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), genre, lblAddress.getText().toString(), lblPhone.getText().toString(), "2");
+                break;
+
+            case R.id.btnMan:
+                genre = "1";
+                btnMan.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_genre));
+                break;
+            case R.id.btnWoman:
+                genre = "2";
+                btnWoman.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_genre));
                 break;
         }
     }

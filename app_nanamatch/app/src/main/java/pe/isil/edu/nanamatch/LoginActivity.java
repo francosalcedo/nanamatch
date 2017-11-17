@@ -3,6 +3,7 @@ package pe.isil.edu.nanamatch;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.*;
 import android.widget.Button;
@@ -27,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView        txtRegister;
     private EditText        txtUser;
     private EditText        txtPass;
+
+    private int LoginStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,10 +61,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Login login = new Login();
                 login.addConnectionListener(this);
                 login.login(getApplicationContext(),txtUser.getText().toString(), txtPass.getText().toString());
+
+
                 break;
             case R.id.txtRegister:
-                Intent intent = new Intent(view.getContext(), RegisterActivity.class);
-                startActivityForResult(intent, 0);
+                Intent intent2 = new Intent(view.getContext(), RegisterActivity.class);
+                startActivityForResult(intent2, 0);
                 break;
         }
     }
@@ -71,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     {
         if(connection.returnLoginSatus() == 1)
         {
+            LoginStatus = connection.returnLoginSatus();
             JSONObject data = connection.returnLoginData();
             try{
 
@@ -83,8 +89,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String user_name = data.getString("name");
                 toast("Bienvenido " + user_name);
 
-
-
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivityForResult(intent, 0);
 
 
             }catch (JSONException e){}

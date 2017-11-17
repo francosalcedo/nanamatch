@@ -22,10 +22,27 @@
 
             <Button
                 android:id="@+id/btnBack"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@mipmap/mujer"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@mipmap/back_arrow"
                 android:layout_alignParentLeft="true"/>
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@mipmap/circle_img" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="135dp"
+                android:textColor="#fff"
+                android:textSize="22sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Perfil" />
             <TextView
                 android:id="@+id/txtRegisterText"
                 android:layout_width="wrap_content"

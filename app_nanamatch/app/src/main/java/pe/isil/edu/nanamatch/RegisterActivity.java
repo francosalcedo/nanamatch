@@ -4,13 +4,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+import org.json.JSONObject;
+
+import pe.isil.edu.nanamatch.util.Register;
+import pe.isil.edu.nanamatch.util.RegisterListener;
+
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener, RegisterListener {
 
     // Widgets
     private Button  btnBack;
     private Button  btnRegister;
+
+    private EditText txtUser;   //email
+    private EditText txtPass;
+    private EditText lblName;
+    private EditText lblLastName;
+    private EditText lblAddress;
+    private EditText lblPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +34,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         // Assign id
         btnBack     = (Button)findViewById(R.id.btnBack);
         btnRegister = (Button)findViewById(R.id.btnRegister);
+        txtUser     = (EditText)findViewById(R.id.txtUser);
+        txtPass     = (EditText)findViewById(R.id.txtPass);
+        lblName     = (EditText)findViewById(R.id.lblName);
+        lblLastName = (EditText)findViewById(R.id.lblLastName);
+        lblAddress  = (EditText)findViewById(R.id.lblAddress);
+        lblPhone    = (EditText)findViewById(R.id.lblPhone);
+
 
         // Set button listener
         btnBack.setOnClickListener(this);
@@ -37,8 +57,26 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 this.finish();
                 break;
             case R.id.btnRegister:
-                Toast.makeText(getApplicationContext(), "¡Registro completo!", Toast.LENGTH_SHORT).show();
+                Register register = new Register();
+                register.addConnectionListener(this);
+                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), lblAddress.getText().toString(), lblPhone.getText().toString(), "12", "2");
                 break;
         }
+    }
+
+    @Override
+    public void onRegisterIntent(Register connection) {
+        if (connection.returnRegisterSatus() == 1)
+        {
+            JSONObject data = connection.returnRegisterData();
+            Toast("Registrado correctamente");
+            this.finish();
+        } else {
+            Toast("Error al registrar");
+        }
+    }
+
+    public void Toast(String m) {
+        Toast.makeText(getApplicationContext(), m, Toast.LENGTH_SHORT).show();
     }
 }

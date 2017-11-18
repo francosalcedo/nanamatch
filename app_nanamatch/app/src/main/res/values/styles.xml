@@ -40,4 +40,15 @@
     </style>
     <!--##########################-->
 
+    <!-- Home xml style -->
+    <style name="nineraName">
+        <item name="android:textColor">#525252</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="nineraDistrit">
+        <item name="android:textColor">#8d8d8d</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

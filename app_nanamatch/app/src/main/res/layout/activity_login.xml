@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.isil.edu.nanamatch.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/layoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+
+        <ImageView
+            android:id="@+id/imgLogo2"
+            android:layout_width="200dp"
+            android:layout_height="127dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@mipmap/bebuh" />
+
+        <RelativeLayout
+            android:id="@+id/layoutLogin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-60dp">
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="220dp"
+                android:text="Iniciar Sesión"
+                android:textAppearance="@style/loginTitle" />
+
+            <TextView
+                android:id="@+id/txtUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="280dp"
+                android:text="Usuario"
+                android:textAppearance="@style/loginText" />
+
+            <EditText
+                android:id="@+id/txtUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtUsername"
+                android:layout_alignStart="@+id/txtUsername"
+                android:layout_below="@+id/txtUsername"
+                android:ems="13"
+                android:fontFamily="@font/montserrat_regular"
+                android:inputType="textEmailAddress"
+                android:text="user.login@gmail.com"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/txtPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtUser"
+                android:layout_below="@+id/txtUser"
+                android:layout_marginTop="15dp"
+                android:text="Contraseña"
+                android:textAppearance="@style/loginText" />
+
+            <EditText
+                android:id="@+id/txtPass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/txtPassword"
+                android:layout_alignStart="@+id/txtPassword"
+                android:layout_below="@+id/txtPassword"
+                android:ems="13"
+                android:fontFamily="@font/montserrat_regular"
+                android:inputType="textPassword"
+                android:text="pass123"
+                android:textColor="#000" />
+
+            <TextView
+                android:id="@+id/txtRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPass"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="¿No tienes cuenta? Regístrate."
+                android:textAppearance="@style/loginReg" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="140dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/txtRegister"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="42dp"
+                android:background="@mipmap/ingresar_button" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

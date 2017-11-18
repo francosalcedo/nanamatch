@@ -18,64 +18,62 @@ import java.util.Map;
 
 import pe.isil.edu.nanamatch.util.GlobalConstants;
 
-
 /**
- * Created by francosalcedo on 12/11/17.
+ * Created by grgrou & ernestogaspard on 17/11/17.
  */
 
-public class Login {
+public class Register {
 
-    int login_status;
-    JSONObject login_data;
-    LoginListener listener;
+    int register_status;
+    JSONObject register_data;
+    RegisterListener listener;
 
 
-
-    public void loginResult(String data)
+    public void registerResult(String data)
     {
         try{
             JSONObject datax = new JSONObject(data.toString());
 
-            this.login_status = datax.getInt("status");
+            this.register_status   = datax.getInt("status");
 
-            if(this.login_status == 1){
-                this.login_data = datax.getJSONObject("data");
+            if(this.register_status == 1){
+                this.register_data = datax.getJSONObject("data");
             }
 
             if(listener != null){
-                listener.onLoginIntent(this);
+                listener.onRegisterIntent(this);
             }
-
 
         }catch (JSONException e){
             e.printStackTrace();
-            Log.d("Error", "Al leer el json respondido -LOGIN- " + data.toString());
+            Log.d("Error", "Al leer el json respondido -REGISTER- " + data.toString());
         }
 
     }
 
-    public int returnLoginSatus()
+    public int returnRegisterSatus()
     {
-        return this.login_status;
+        return this.register_status;
     }
 
-    public JSONObject returnLoginData()
+    public JSONObject returnRegisterData()
     {
-        return this.login_data;
+        return this.register_data;
     }
 
-    public void addConnectionListener(LoginListener l){
+    public void addConnectionListener(RegisterListener l){
         this.listener = l;
     }
 
-    public JSONObject login(Context contextThis, final String email, final String password)
+    public JSONObject register(Context contextThis, final String email, final String password, final String name, final String last_name, final String gender
+    ,final String address, final String phone_number, final String id_distrit)
     {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, GlobalConstants.API_URL + GlobalConstants.API_METHOD_LOGIN,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, GlobalConstants.API_URL + GlobalConstants.API_METHOD_REGISTER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // Enviado la respuesta al pre-listener
-                        loginResult(response);
+                        registerResult(response);
                     }
                 },
                 new Response.ErrorListener() {
@@ -89,6 +87,12 @@ public class Login {
                 Map<String,String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", password);
+                params.put("name", name);
+                params.put("last_name", last_name);
+                params.put("gender",gender);
+                params.put("address", address);
+                params.put("phone_number", phone_number);
+                params.put("id_distrit",id_distrit);
                 return params;
             }
         };

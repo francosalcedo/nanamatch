@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pe.isil.edu.nanamatch.HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff"
+        >
+
+        <RelativeLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@color/c_background_2"
+            >
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@mipmap/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/fotoNinera"
+            android:layout_width="340dp"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="60dp"/>
+
+        <RelativeLayout
+            android:id="@+id/infoNinera"
+            android:layout_width="340dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/relativeLayout"
+            android:layout_alignStart="@+id/relativeLayout"
+            android:layout_below="@+id/fotoNinera">
+
+            <TextView
+                android:id="@+id/txtNombreNinera"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:text="Lil Xan"
+                android:textAppearance="@style/nineraName"
+                android:textColor="#525252"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtDistrito"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/txtNombreNinera"
+                android:text="Distrito:"
+                android:textAppearance="@style/nineraDistrit"
+                android:textColor="#8d8d8d"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txtDistritoNinera"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/txtNombreNinera"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/txtDistrito"
+                android:text="Miraflores"
+                android:textAppearance="@style/nineraDistrit"
+                android:textColor="#8d8d8d"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="340dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/infoNinera"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout">
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40dp"
+                android:layout_alignParentLeft="true"
+                android:background="@mipmap/izquierda"
+                android:layout_centerVertical="true"/>
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40dp"
+                android:background="@mipmap/corazon"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="40dp"
+                android:background="@mipmap/derecha"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@mipmap/barra_ploma_abajo"
+            android:layout_alignParentBottom="true"
+            >
+            <Button
+                android:id="@+id/btnProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/perfil"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_alignParentLeft="true"
+                />
+            <Button
+                android:id="@+id/btnHome"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/home"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+            <Button
+                android:id="@+id/btnHistorial"
+                android:layout_width="44dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/historial"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

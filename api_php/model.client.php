@@ -19,8 +19,7 @@ class Client
   {
     $r = new stdClass();
     $sql = $this->client->select('*')
-      ->where(
-      [
+      ->where([
         'email'     => $d->email,
         'password'  => $d->password
       ])
@@ -47,8 +46,8 @@ class Client
         'last_name'     => $d->last_name,
         'address'       => $d->address,
         'phone_number'  => $d->phone_number,
-        'birthday'      => $d->birthday,
-        'id_distrit'    => $d->id_distrit
+        'id_distrit'    => $d->id_distrit,
+        'gender'        => $d->gender
       ];
 
       $this->validate($save);
@@ -113,4 +112,5 @@ class Client
   {
     return json_encode($a);
   }
+
 }

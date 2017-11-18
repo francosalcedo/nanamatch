@@ -45,7 +45,7 @@ class Client
         'password'      => $d->password,
         'name'          => $d->name,
         'last_name'     => $d->last_name,
-	'genre'		=> $d->genre,
+	      'genre'		      => $d->genre,
         'address'       => $d->address,
         'phone_number'  => $d->phone_number,
         'id_distrit'    => $d->id_distrit

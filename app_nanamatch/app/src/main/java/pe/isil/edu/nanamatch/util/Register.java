@@ -65,7 +65,7 @@ public class Register {
         this.listener = l;
     }
 
-    public JSONObject register(Context contextThis, final String email, final String password, final String name, final String last_name, final String genre
+    public JSONObject register(Context contextThis, final String email, final String password, final String name, final String last_name, final String gender
     ,final String address, final String phone_number, final String id_distrit)
     {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, GlobalConstants.API_URL + GlobalConstants.API_METHOD_REGISTER,
@@ -89,7 +89,7 @@ public class Register {
                 params.put("password", password);
                 params.put("name", name);
                 params.put("last_name", last_name);
-                params.put("genre",genre);
+                params.put("gender",gender);
                 params.put("address", address);
                 params.put("phone_number", phone_number);
                 params.put("id_distrit",id_distrit);

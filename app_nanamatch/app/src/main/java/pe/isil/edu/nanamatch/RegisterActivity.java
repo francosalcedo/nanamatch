@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button  btnMan;
     private Button  btnWoman;
 
-    private String genre;
+    private String gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,16 +70,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnRegister:
                 Register register = new Register();
                 register.addConnectionListener(this);
-                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), genre, lblAddress.getText().toString(), lblPhone.getText().toString(), "2");
+                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), gender, lblAddress.getText().toString(), lblPhone.getText().toString(), "2");
                 break;
 
             case R.id.btnMan:
-                genre = "1";
-                btnMan.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_genre));
+                gender = "1";
                 break;
             case R.id.btnWoman:
-                genre = "2";
-                btnWoman.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_genre));
+                gender = "2";
                 break;
         }
     }

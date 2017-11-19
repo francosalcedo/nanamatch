@@ -1,12 +1,12 @@
 <?php
-/*
-ini_set('display_errors', 1);
+
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-*/
 
+*/
 require_once 'config.php';
-header('Content-type:application/json');
+header('Content-type: application/json');
 
 /*
 // toda respuesta debe ser JSON
@@ -22,17 +22,18 @@ if($mode[0] == '') echo json_encode(['error' => 'no method']);
 
 switch ($mode[0]) {
 	case 'login':
-			echo $client->login( (object)[
+			echo $api->login( (object)[
 				'email' => $_REQUEST['email'],
 				'password' => $_REQUEST['password']
 			]);
 		break;
 
 	case 'register':
-			echo $client->register( (object) $_REQUEST);
+			echo $api->register( (object) $_REQUEST);
 		break;
 
-	case '':
+	case 'list':
+			echo $api->listAll( (object) $_REQUEST);
 		break;
 
 	case '':

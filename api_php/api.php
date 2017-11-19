@@ -3,22 +3,30 @@
 /**
  * Entidad Client
  */
-class Client
+class Api
 {
   private $db;
   private $client;
-  const TABLE = "Client";
+  const TABLE_CLIENT = "Client";
+  const TABLE_NANA   = "Nana";
 
   function __construct($config)
   {
     $this->db = new \Buki\Pdox($config);
-    $this->client = $this->db->table(self::TABLE);
+  }
+
+  function listAll($q)
+  {
+    $sql = $this->db->table(( $q->q=='nana'?self::TABLE_NANA:self::TABLE_CLIENT ))
+                  ->select("*")
+                  ->getAll();
+    return $this->json((object)$sql);
   }
 
   public function login($d)
   {
     $r = new stdClass();
-    $sql = $this->client->select('*')
+    $sql = $this->db->table(self::TABLE_CLIENT)->select('*')
       ->where([
         'email'     => $d->email,
         'password'  => $d->password
@@ -53,7 +61,7 @@ class Client
       $this->validate($save);
       $this->registerValidateEmail($d->email);
 
-      $sql = $this->db->table(self::TABLE)->insert($save);
+      $sql = $this->db->table(self::TABLE_CLIENT)->insert($save);
 
       if($sql)
       {

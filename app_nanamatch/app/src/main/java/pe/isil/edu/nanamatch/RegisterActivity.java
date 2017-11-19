@@ -70,7 +70,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnRegister:
                 Register register = new Register();
                 register.addConnectionListener(this);
-                register.register(getApplicationContext(),txtUser.getText().toString() , txtPass.getText().toString(), lblName.getText().toString(), lblLastName.getText().toString(), gender, lblAddress.getText().toString(), lblPhone.getText().toString(), "2");
+                register.register(
+                        getApplicationContext(),
+                        txtUser.getText().toString(),
+                        txtPass.getText().toString(),
+                        lblName.getText().toString(),
+                        lblLastName.getText().toString(),
+                        gender,
+                        lblAddress.getText().toString(),
+                        lblPhone.getText().toString(),
+                        "2"
+                );
                 break;
 
             case R.id.btnMan:

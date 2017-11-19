@@ -13,6 +13,6 @@ $config = [
 	'prefix'    => ''
 ];
 
-require 'model.client.php';
+require 'api.php';
 
-$client = new Client($config);
+$api = new Api($config);

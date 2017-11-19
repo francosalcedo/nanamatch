@@ -19,7 +19,7 @@ import java.util.Map;
 import pe.isil.edu.nanamatch.util.GlobalConstants;
 
 /**
- * Created by grgrou & ernestogaspard on 17/11/17.
+ * Created by porlaswebases on 17/11/17.
  */
 
 public class Register {

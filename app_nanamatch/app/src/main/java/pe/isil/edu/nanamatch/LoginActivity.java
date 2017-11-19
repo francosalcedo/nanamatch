@@ -16,8 +16,14 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import pe.isil.edu.nanamatch.util.ApiCallback;
+import pe.isil.edu.nanamatch.rest.List;
+
+
+import pe.isil.edu.nanamatch.entity.Nana;
 import pe.isil.edu.nanamatch.util.Login;
 import pe.isil.edu.nanamatch.util.LoginListener;
+import pe.isil.edu.nanamatch.entity.Client;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginListener {
 
@@ -89,11 +95,36 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String user_name = data.getString("name");
                 toast("Bienvenido " + user_name);
 
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivityForResult(intent, 0);
+                final Client client = new Client();
+                client.setName(user_name);
+                client.setAddress(data.getString("address"));
+                client.setEmail(data.getString("email"));
+                client.setGender(data.getInt("gender"));
+                client.setId(data.getInt("id"));
+                client.setId_distric(data.getInt("id_distrit"));
+                client.setLast_name(data.getString("last_name"));
+                client.setPhone_number(data.getInt("phone_number"));
 
 
-            }catch (JSONException e){}
+                final Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+
+                List list = new List();
+                list.list(getApplicationContext(), "nana", new ApiCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        /*
+                            seteamos dentro del onSuccess porque esto es un metodo asyncronico
+                        */
+                        Log.d("CRJJJ::", result);
+
+                        intent.putExtra("nanas", result);
+                        intent.putExtra("client", client);
+                        startActivity(intent);
+
+                    }
+                });
+
+            }catch (Exception e){}
         }else{
             btnLogin.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_shake));
             toast("Login Fallido, intente nuevamente");

@@ -3,7 +3,10 @@ package pe.isil.edu.nanamatch;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
@@ -14,9 +17,40 @@ import java.util.Iterator;
 
 import pe.isil.edu.nanamatch.entity.Client;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ImageView fotoNinera;
+
+    private TextView txtNombreNinera;
+    private TextView txtDistritoNinera;
+
+    //botones
+    private Button btnAnteriorN;
+    private Button btnSiguienteN;
+    private Button btnEscogerN;
+
+    private int idS;
+
+    private nanass[] onanass = new nanass[5];
+
+    private class nanass{
+        private String img;
+        private String name;
+        private String distrit;
+
+        public nanass(){}
+
+        public String getImg(){return img;}
+        public void setImg(String img){this.img = img;}
+
+        public String getName() {return name;}
+        public void setName(String name) {this.name = name;}
+
+        public String getDistrit() {return distrit;}
+        public void setDistrit(String distrit) {
+            if (distrit.equals("1")){distrit = "Miraflores";}
+            this.distrit = distrit;}
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +58,14 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
 
-        fotoNinera = findViewById(R.id.fotoNinera);
+        fotoNinera = (ImageView)findViewById(R.id.fotoNinera);
+        txtNombreNinera = (TextView)findViewById(R.id.txtNombreNinera);
+        txtDistritoNinera =(TextView)findViewById(R.id.txtDistritoNinera);
 
-        Picasso.with(this).load("http://i.imgur.com/UvcD8QO.jpg").into(fotoNinera);
+        //Botones
+        btnAnteriorN = (Button)findViewById(R.id.btnAnteriorN);
+        btnSiguienteN =(Button)findViewById(R.id.btnSiguienteN);
+        btnEscogerN = (Button)findViewById(R.id.btnEscogerN);
 
         // Obteniendo datos del cliente
         Client client = getIntent().getParcelableExtra("client");
@@ -48,18 +87,53 @@ public class HomeActivity extends AppCompatActivity {
                 int id              = line.getInt("id");
                 int id_distrit      = line.getInt("id_distrit");
 
-                Toast.makeText(getApplicationContext(), "Nana: "+name, Toast.LENGTH_SHORT).show();
+                //Mas webadas que hizo ernesto
+                int i = Integer.parseInt(dynamicKey);
+                //ident[i] = line.getString("img");
+
+                onanass[i] = new nanass();
+                onanass[i].setImg(img);
+                onanass[i].setName(name);
+                onanass[i].setDistrit(Integer.toString(id_distrit));
 
             }
-
         }catch (Exception e){
             Log.d("Error","en el json de nanas");
             e.printStackTrace();
         }
+        idS = 0;
+        Picasso.with(this).load(onanass[idS].getImg()).into(fotoNinera);
 
+        //Toast.makeText(getApplicationContext(), "hola: " + client.getName(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"bitch: "+ident[idS], Toast.LENGTH_SHORT).show();
 
+        btnAnteriorN.setOnClickListener(this);
+        btnSiguienteN.setOnClickListener(this);
+        btnEscogerN.setOnClickListener(this);
+    }
 
-        Toast.makeText(getApplicationContext(), "hola: " + client.getName(), Toast.LENGTH_SHORT).show();
-
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnAnteriorN:
+                if (idS >= 1){idS = idS - 1;
+                }else {idS = idS;
+                }
+                Picasso.with(this).load(onanass[idS].getImg()).into(fotoNinera);
+                txtNombreNinera.setText(onanass[idS].getName());
+                txtDistritoNinera.setText(onanass[idS].getDistrit());
+                break;
+            case R.id.btnSiguienteN:
+                if (idS >= 0 && idS < onanass.length-1){idS = idS + 1;
+                }else {idS = idS;
+                }
+                Picasso.with(this).load(onanass[idS].getImg()).into(fotoNinera);
+                txtNombreNinera.setText(onanass[idS].getName());
+                txtDistritoNinera.setText(onanass[idS].getDistrit());
+                break;
+            case R.id.btnEscogerN:
+                idS = idS;
+                break;
+        }
     }
 }

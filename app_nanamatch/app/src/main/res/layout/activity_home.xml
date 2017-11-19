@@ -84,6 +84,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/relativeLayout">
             <Button
+                android:id="@+id/btnAnteriorN"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="40dp"
@@ -91,6 +92,7 @@
                 android:background="@mipmap/izquierda"
                 android:layout_centerVertical="true"/>
             <Button
+                android:id="@+id/btnEscogerN"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginLeft="40dp"
@@ -98,6 +100,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
             <Button
+                android:id="@+id/btnSiguienteN"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="40dp"

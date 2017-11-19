@@ -57,7 +57,7 @@
                 android:ems="13"
                 android:fontFamily="@font/montserrat_regular"
                 android:inputType="textEmailAddress"
-                android:text="user.login@gmail.com"
+                android:text="felix@nana.com"
                 android:textColor="#000" />
 
             <TextView
@@ -80,7 +80,7 @@
                 android:ems="13"
                 android:fontFamily="@font/montserrat_regular"
                 android:inputType="textPassword"
-                android:text="pass123"
+                android:text="adios"
                 android:textColor="#000" />
 
             <TextView

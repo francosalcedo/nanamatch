@@ -58,14 +58,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
 
-        fotoNinera = (ImageView)findViewById(R.id.fotoNinera);
-        txtNombreNinera = (TextView)findViewById(R.id.txtNombreNinera);
-        txtDistritoNinera =(TextView)findViewById(R.id.txtDistritoNinera);
+        fotoNinera          = findViewById(R.id.fotoNinera);
+        txtNombreNinera     = findViewById(R.id.txtNombreNinera);
+        txtDistritoNinera   = findViewById(R.id.txtDistritoNinera);
 
         //Botones
-        btnAnteriorN = (Button)findViewById(R.id.btnAnteriorN);
-        btnSiguienteN =(Button)findViewById(R.id.btnSiguienteN);
-        btnEscogerN = (Button)findViewById(R.id.btnEscogerN);
+        btnAnteriorN    = findViewById(R.id.btnAnteriorN);
+        btnSiguienteN   = findViewById(R.id.btnSiguienteN);
+        btnEscogerN     = findViewById(R.id.btnEscogerN);
 
         // Obteniendo datos del cliente
         Client client = getIntent().getParcelableExtra("client");
@@ -116,23 +116,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnAnteriorN:
-                if (idS >= 1){idS = idS - 1;
-                }else {idS = idS;
-                }
+                if (idS >= 1) idS = idS - 1;
+
                 Picasso.with(this).load(onanass[idS].getImg()).into(fotoNinera);
                 txtNombreNinera.setText(onanass[idS].getName());
                 txtDistritoNinera.setText(onanass[idS].getDistrit());
+
                 break;
             case R.id.btnSiguienteN:
-                if (idS >= 0 && idS < onanass.length-1){idS = idS + 1;
-                }else {idS = idS;
-                }
+                if (idS >= 0 && idS < onanass.length-1) idS = idS + 1;
+
                 Picasso.with(this).load(onanass[idS].getImg()).into(fotoNinera);
                 txtNombreNinera.setText(onanass[idS].getName());
                 txtDistritoNinera.setText(onanass[idS].getDistrit());
                 break;
             case R.id.btnEscogerN:
-                idS = idS;
+                Toast.makeText(getApplicationContext(),
+                                "Escogiste a: " + onanass[idS].getName(),
+                                Toast.LENGTH_SHORT
+                ).show();
                 break;
         }
     }

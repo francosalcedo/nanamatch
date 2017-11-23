@@ -105,9 +105,10 @@ class Api
       throw new Exception("Formato de email invalido.", 1);
     }
 
-    $sql = $this->client->select('*')
-                        ->where('email', $e)
-                        ->get();
+    $sql = $this->db->table(self::TABLE_CLIENT)
+                    ->select('*')
+                    ->where('email', $e)
+                    ->get();
 
     if($sql)
     {

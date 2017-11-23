@@ -12,5 +12,6 @@ public class GlobalConstants {
     public static final String API_METHOD_REGISTER = "register";
     public static final String API_METHOD_LIST = "list";
     public static final String API_METHOD_CREATE_SERVICE = "create_service";
+    public static final String API_METHOD_LIST_SERVICE = "list_service";
 
 }

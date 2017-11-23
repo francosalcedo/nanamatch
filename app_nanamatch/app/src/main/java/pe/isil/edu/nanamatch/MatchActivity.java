@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import pe.isil.edu.nanamatch.entity.Client;
 import pe.isil.edu.nanamatch.entity.Nana;
@@ -90,9 +93,16 @@ public class MatchActivity extends Activity implements View.OnClickListener{
                         new ApiCallback(){
                     @Override
                     public void onSuccess(String result) {
-
-                        Log.d("AQUIIII::", result);
-
+                        try{
+                            JSONObject r = new JSONObject(result);
+                            int status = Integer.parseInt(r.getString("status"));
+                            if(status == 1){
+                                Toast.makeText(getApplicationContext(), "Gracias por sus comentarios y por usar nuestros servicios", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Error.", Toast.LENGTH_SHORT).show();
+                            }
+                            finish();
+                        }catch (Exception e){}
 
                     }
                 });

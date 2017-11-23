@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -32,11 +33,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnSiguienteN;
     private Button btnEscogerN;
 
+    private Button btnProfile;
+
     private int idS;
-
-    private String todos;
-
     ArrayList<Nana> onanas = new ArrayList<Nana>();
+    Client client = new Client();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +54,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnSiguienteN =(Button)findViewById(R.id.btnSiguienteN);
         btnEscogerN = (Button)findViewById(R.id.btnEscogerN);
 
+        btnProfile  = (Button)findViewById(R.id.btnProfile);
+
         // Obteniendo datos del cliente
-        Client client = getIntent().getParcelableExtra("client");
+        client = getIntent().getParcelableExtra("client");
+
         try{
             JSONObject nanas = new JSONObject(getIntent().getExtras().getString("nanas"));
 
@@ -73,8 +77,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 int id              = line.getInt("id");
                 int id_distrit      = line.getInt("id_distrit");
 
-                //Mas webadas que hizo ernesto
-                int i = Integer.parseInt(dynamicKey);
+                //
 
                 final Nana nana = new Nana();
                 nana.setId(id);
@@ -86,12 +89,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 nana.setDistrit(id_distrit);
 
                 onanas.add(nana);
-
-                //ident[i] = line.getString("img");
-                /*onanass[i] = new nanass();
-                onanass[i].setImg(img);
-                onanass[i].setName(name);
-                onanass[i].setDistrit(Integer.toString(id_distrit));*/
             }
         }catch (Exception e){
             Log.d("Error","en el json de nanas");
@@ -99,20 +96,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
         idS = 0;
         Picasso.with(this).load(onanas.get(idS).getImg()).into(fotoNinera);
-        txtNombreNinera.setText(onanas.get(idS).getName().toString());
-        txtDistritoNinera.setText(onanas.get(idS).getDistrit().toString());
+        txtNombreNinera.setText(onanas.get(idS).getName());
+        txtDistritoNinera.setText(onanas.get(idS).getDistrit());
 
-        //Toast.makeText(getApplicationContext(), "hola: " + client.getName(), Toast.LENGTH_SHORT).show();
-        //Toast.makeText(getApplicationContext(),"bitch: "+ident[idS], Toast.LENGTH_SHORT).show();
-
-        /*for (Nana s : onanas){
-            todos = todos + s.getId() + "\n";
-
-        }Toast.makeText(getApplicationContext(),todos,Toast.LENGTH_SHORT).show();*/
         btnAnteriorN.setOnClickListener(this);
         btnSiguienteN.setOnClickListener(this);
         btnEscogerN.setOnClickListener(this);
         fotoNinera.setOnClickListener(this);
+
+        btnProfile.setOnClickListener(this);
     }
 
     @Override
@@ -121,14 +113,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAnteriorN:
                 if (idS > 0){idS--;}else {idS = onanas.size()-1;}
                 Picasso.with(this).load(onanas.get(idS).getImg()).into(fotoNinera);
-                txtNombreNinera.setText(onanas.get(idS).getName().toString());
-                txtDistritoNinera.setText(onanas.get(idS).getDistrit().toString());
+                txtNombreNinera.setText(onanas.get(idS).getName());
+                txtDistritoNinera.setText(onanas.get(idS).getDistrit());
                 break;
             case R.id.btnSiguienteN:
                 if (idS < onanas.size()-1){idS++;}else {idS = 0;}
                 Picasso.with(this).load(onanas.get(idS).getImg()).into(fotoNinera);
-                txtNombreNinera.setText(onanas.get(idS).getName().toString());
-                txtDistritoNinera.setText(onanas.get(idS).getDistrit().toString());
+                txtNombreNinera.setText(onanas.get(idS).getName());
+                txtDistritoNinera.setText(onanas.get(idS).getDistrit());
                 break;
             case R.id.btnEscogerN:
                 idS = idS;
@@ -139,6 +131,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("Ids", idS);
                 startActivityForResult(intent, 0);
                 break;
+
+            case R.id.btnProfile:
+                Intent intent1 = new Intent(view.getContext(), ProfileActivity.class);
+                intent1.putExtra("Client", client);
+                startActivity(intent1);
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                break;
         }
     }
+
 }

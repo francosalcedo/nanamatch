@@ -65,17 +65,17 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     />
+
                 <TextView
-                    android:id="@+id/txtNanaName"
+                    android:id="@+id/txtClientName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/nameTitle"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="Almendrano Tipakay"
                     android:textAppearance="@style/nineraDescriptionComentary"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_below="@+id/nameTitle"
-                    />
+                    android:textSize="16sp" />
                 <TextView
                     android:id="@+id/addressTitle"
                     android:layout_width="wrap_content"
@@ -85,10 +85,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/txtNanaName"
+                    android:layout_below="@id/txtClientName"
                     />
                 <TextView
-                    android:id="@+id/txtNanaAddress"
+                    android:id="@+id/txtClientAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Av. Tipakay 1243 Dpto: 302"
@@ -107,19 +107,19 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:layout_below="@id/txtNanaAddress"
+                    android:layout_below="@id/txtClientAddress"
                     />
+
                 <TextView
-                    android:id="@+id/txtNanaPhone"
+                    android:id="@+id/txtClientPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/phoneTitle"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
                     android:text="983372345"
                     android:textAppearance="@style/nineraDescriptionComentary"
-                    android:textSize="16sp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_below="@+id/phoneTitle"
-                    />
+                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

@@ -120,8 +120,12 @@ public class Client implements Parcelable {
         this.phone_number = phone_number;
     }
 
-    public int getId_distric() {
-        return id_distric;
+    public String getId_distric() {
+        if (id_distric == 1){return "Miraflores";}else if(id_distric == 2){
+            return "Surquillo";
+        }else{
+            return "Cercado de Lima";
+        }
     }
 
     public void setId_distric(int id_distric) {

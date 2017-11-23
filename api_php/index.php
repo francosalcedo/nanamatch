@@ -40,7 +40,8 @@ switch ($mode[0]) {
 			echo $api->createService( (object) $_REQUEST );
 		break;
 
-	case '':
+	case 'list_service':
+			echo $api->listService( (object) $_REQUEST );
 		break;
 
 }

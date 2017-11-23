@@ -16,6 +16,23 @@ class Api
     $this->db = new \Buki\Pdox($config);
   }
 
+  public function listService($d)
+  {
+    $sql = $this->db->table( self::TABLE_SERVICE)
+                    ->select('*')
+                    ->where('id_nana', $d->id)
+                    ->getAll();
+    if($sql){
+      $r->status = 1;
+      $r->msj 	 = 'ok';
+      $r->data   = $sql;
+    }else{
+      $r->status = 2;
+      $r->msj 	 = 'Error al procesar lista';
+    }
+    return $this->json($r);
+  }
+
   public function createService($d)
   {
     $r = new stdClass();

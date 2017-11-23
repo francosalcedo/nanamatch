@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import pe.isil.edu.nanamatch.entity.Nana;
+import pe.isil.edu.nanamatch.rest.ListService;
 
 
 public class NanaDetailActivity extends AppCompatActivity {
@@ -40,6 +41,11 @@ public class NanaDetailActivity extends AppCompatActivity {
 
         ArrayList<Nana> onanas = (ArrayList<Nana>)getIntent().getSerializableExtra("oNanas");
         int idS = (int)getIntent().getSerializableExtra("Ids");
+
+
+        ListService list = new ListService();
+//        list.list(getApplicationContext(), onanas.get(idS).getId());
+
 
         Picasso.with(this).load(onanas.get(idS).getImg()).into(imgNanaProfile);
         txtNanaName.setText(onanas.get(idS).getName().toString());

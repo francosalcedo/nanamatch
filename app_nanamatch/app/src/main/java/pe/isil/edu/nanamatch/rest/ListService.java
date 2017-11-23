@@ -22,7 +22,7 @@ import pe.isil.edu.nanamatch.util.GlobalConstants;
 
 public class ListService {
 
-    public void list(Context contextThis, final String id_client, final String id_nana, final String comment, final ApiCallback callback)
+    public void list(Context contextThis, final String id_nana, final ApiCallback callback)
     {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, GlobalConstants.API_URL + GlobalConstants.API_METHOD_LIST_SERVICE,
                 new Response.Listener<String>() {
@@ -40,9 +40,7 @@ public class ListService {
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<String, String>();
-                params.put("id_client", id_client);
-                params.put("id_nana", id_nana);
-                params.put("comment", comment);
+                params.put("id", id_nana);
                 return params;
             }
         };

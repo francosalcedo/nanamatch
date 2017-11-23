@@ -8,11 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import pe.isil.edu.nanamatch.entity.Client;
 import pe.isil.edu.nanamatch.entity.Nana;
-import pe.isil.edu.nanamatch.rest.CreateService;
+import pe.isil.edu.nanamatch.rest.createService;
 import pe.isil.edu.nanamatch.util.ApiCallback;
 
 public class MatchActivity extends Activity implements View.OnClickListener{
@@ -79,7 +77,7 @@ public class MatchActivity extends Activity implements View.OnClickListener{
 
                 break;
             case R.id.end:
-                CreateService send = new CreateService();
+                createService send = new createService();
                 String id_client = String.valueOf(client.getId());
                 String id_nana   = String.valueOf(nana.getId());
 
@@ -94,7 +92,8 @@ public class MatchActivity extends Activity implements View.OnClickListener{
                         Log.d("AQUIIII::", result);
 
                     }
-                })
+                });
+
                 break;
         }
     }

@@ -20,7 +20,7 @@ import pe.isil.edu.nanamatch.util.GlobalConstants;
  * Created by francosalcedo on 23/11/17.
  */
 
-public class CreateService {
+public class createService {
 
     public void createService(Context contextThis, final String id_client, final String id_nana, final String comment, final ApiCallback callback)
     {

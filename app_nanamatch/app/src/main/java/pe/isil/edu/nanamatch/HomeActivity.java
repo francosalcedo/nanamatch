@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -87,6 +88,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 nana.setInfo(info);
                 nana.setImg(img);
                 nana.setDistrit(id_distrit);
+                nana.setDistritName(nana.getDistrit());
 
                 onanas.add(nana);
             }
@@ -116,20 +118,43 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 txtNombreNinera.setText(onanas.get(idS).getName());
                 txtDistritoNinera.setText(onanas.get(idS).getDistrit());
                 break;
+
             case R.id.btnSiguienteN:
                 if (idS < onanas.size()-1){idS++;}else {idS = 0;}
                 Picasso.with(this).load(onanas.get(idS).getImg()).into(fotoNinera);
                 txtNombreNinera.setText(onanas.get(idS).getName());
                 txtDistritoNinera.setText(onanas.get(idS).getDistrit());
                 break;
+
             case R.id.btnEscogerN:
-                idS = idS;
+                // idS = idS;
+                btnEscogerN.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_shake));
+                Toast.makeText(getApplicationContext(), "Match!", Toast.LENGTH_SHORT).show();
+
+                Nana nana = new Nana();
+                nana.setDistritName(onanas.get(idS).getDistrit());
+                nana.setDistrit(onanas.get(idS).getDistritInt());
+                nana.setEmail(onanas.get(idS).getEmail());
+                nana.setId(onanas.get(idS).getId());
+                nana.setImg(onanas.get(idS).getImg());
+                nana.setInfo(onanas.get(idS).getInfo());
+                nana.setLast_name(onanas.get(idS).getLast_name());
+                nana.setName(onanas.get(idS).getName());
+
+                Intent goMatch = new Intent(view.getContext(), MatchActivity.class);
+                goMatch.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                goMatch.putExtra("nana", nana);
+                goMatch.putExtra("client", client);
+                startActivity(goMatch);
+                overridePendingTransition(R.animator.slide_up, R.anim.stay);
+
                 break;
+
             case R.id.fotoNinera:
                 Intent intent = new Intent(view.getContext(), NanaDetailActivity.class);
                 intent.putExtra("oNanas", onanas);
                 intent.putExtra("Ids", idS);
-                startActivityForResult(intent, 0);
+                startActivity(intent);
                 break;
 
             case R.id.btnProfile:

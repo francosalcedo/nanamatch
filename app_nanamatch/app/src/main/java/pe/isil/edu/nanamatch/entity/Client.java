@@ -121,7 +121,9 @@ public class Client implements Parcelable {
     }
 
     public String getId_distric() {
-        if (id_distric == 1){return "Miraflores";}else if(id_distric == 2){
+        if (id_distric == 1){
+            return "Miraflores";
+        }else if(id_distric == 2){
             return "Surquillo";
         }else{
             return "Cercado de Lima";

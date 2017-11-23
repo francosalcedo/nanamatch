@@ -124,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
 
+
             }catch (Exception e){}
         }else{
             btnLogin.startAnimation(AnimationUtils.loadAnimation(this, R.animator.anim_shake));

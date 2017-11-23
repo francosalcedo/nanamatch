@@ -14,6 +14,7 @@ public class Nana implements Parcelable {
     private String last_name;
     private String info;
     private String img;
+    private String distritName;
     private int distrit;
 
     public Nana(){
@@ -73,9 +74,24 @@ public class Nana implements Parcelable {
             return "Surquillo";
         }else{
             return "Cercado de Lima";
-        }}
+        }
+    }
 
-    public void setDistrit(int distrit) {this.distrit = distrit;}
+    public int getDistritInt() {
+        return distrit;
+    }
+
+    public void setDistrit(int distrit) {
+        this.distrit = distrit;
+    }
+
+    public void setDistritName(String distritName){
+        this.distritName = distritName;
+    }
+
+    public String getDistritName(){
+        return distritName;
+    }
 
     protected Nana(Parcel in) {
         id = in.readInt();
@@ -84,6 +100,7 @@ public class Nana implements Parcelable {
         last_name = in.readString();
         info = in.readString();
         img = in.readString();
+        distritName = in.readString();
         distrit = in.readInt();
     }
 
@@ -100,6 +117,7 @@ public class Nana implements Parcelable {
         dest.writeString(last_name);
         dest.writeString(info);
         dest.writeString(img);
+        dest.writeString(distritName);
         dest.writeInt(distrit);
     }
 

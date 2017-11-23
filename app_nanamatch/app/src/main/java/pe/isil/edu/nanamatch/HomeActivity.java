@@ -92,6 +92,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 onanas.add(nana);
             }
+
         }catch (Exception e){
             Log.d("Error","en el json de nanas");
             e.printStackTrace();

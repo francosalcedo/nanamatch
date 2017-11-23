@@ -16,22 +16,60 @@ class Api
     $this->db = new \Buki\Pdox($config);
   }
 
-  public function listService($d)
+  public function editName($d)
   {
-    $sql = $this->db->table( self::TABLE_SERVICE)
-                    ->select('*')
-                    ->where('id_nana', $d->id)
-                    ->getAll();
+    $data = [
+      'name'  => $d->name
+    ];
+
+    $sql = $this->db->table( self::TABLE_CLIENT )
+                    ->update($data)
+                    ->where('id', $d->id);
     if($sql){
       $r->status = 1;
-      $r->msj 	 = 'ok';
-      $r->data   = $sql;
+      $r->msj 	 = 'Servicio creado';
     }else{
       $r->status = 2;
-      $r->msj 	 = 'Error al procesar lista';
+      $r->msj 	 = 'Error al procesar';
     }
     return $this->json($r);
+
   }
+
+    public function listService($d)
+    {
+      $sql = $this->db->table( self::TABLE_SERVICE)
+                      ->select('*')
+                      ->where('id_nana', $d->id)
+                      ->getAll();
+      if($sql){
+        $r->status = 1;
+        $r->msj 	 = 'ok';
+        $r->data   = (object)$sql;
+      }else{
+        $r->status = 2;
+        $r->msj 	 = 'Error al procesar lista';
+      }
+      return $this->json((object)$r);
+    }
+
+    public function listServiceClient($d)
+    {
+      $sql = $this->db->table( self::TABLE_SERVICE)
+                      ->select('*')
+                      ->where('id_cliente', $d->id)
+                      ->getAll();
+      if($sql){
+        $r->status = 1;
+        $r->msj 	 = 'ok';
+        $r->data   = (object)$sql;
+      }else{
+        $r->status = 2;
+        $r->msj 	 = 'Error al procesar lista';
+      }
+      return $this->json((object)$r);
+    }
+
 
   public function createService($d)
   {

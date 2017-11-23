@@ -44,4 +44,12 @@ switch ($mode[0]) {
 			echo $api->listService( (object) $_REQUEST );
 		break;
 
+	case 'edit_name':
+			echo $api->editName((object) $_REQUEST);
+			break;
+
+	case 'list_service_client':
+			echo $api->listServiceClient((object) $_REQUEST);
+			break;
+
 }

@@ -2,16 +2,21 @@ package pe.isil.edu.nanamatch;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import pe.isil.edu.nanamatch.entity.Nana;
 import pe.isil.edu.nanamatch.rest.ListService;
+import pe.isil.edu.nanamatch.util.ApiCallback;
 
 
 public class NanaDetailActivity extends AppCompatActivity {
@@ -25,6 +30,8 @@ public class NanaDetailActivity extends AppCompatActivity {
     private TextView txtDateService;
     private TextView txtNanaComentary;
 
+    public TextView todo;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ninera_detalle);
@@ -36,15 +43,54 @@ public class NanaDetailActivity extends AppCompatActivity {
         txtNanaRating  = (TextView)findViewById(R.id.txtNanaRating);
         txtNanaDescription = (TextView)findViewById(R.id.txtNanaDescription);
         txtServicesCount = (TextView)findViewById(R.id.txtServicesCount);
-        txtDateService = (TextView)findViewById(R.id.txtDateService);
-        txtNanaComentary = (TextView)findViewById(R.id.txtNanaComentary);
+
+        todo = findViewById(R.id.todo);
+
 
         ArrayList<Nana> onanas = (ArrayList<Nana>)getIntent().getSerializableExtra("oNanas");
         int idS = (int)getIntent().getSerializableExtra("Ids");
 
 
         ListService list = new ListService();
-//        list.list(getApplicationContext(), onanas.get(idS).getId());
+        String idd = String.valueOf(onanas.get(idS).getId());
+
+        Log.d("KKEEE", "JEJDIDJD");
+
+        list.list(getApplicationContext(), idd, new ApiCallback() {
+            @Override
+            public void onSuccess(String result) {
+
+                try{
+                    JSONObject r = new JSONObject(result);
+                    int status = Integer.parseInt(r.getString("status"));
+                    if(status == 1){
+                        JSONObject data = new JSONObject(r.getString("data"));
+
+                        String all = "";
+                        Iterator keys = data.keys();
+                        while(keys.hasNext()) {
+                            String dynamicKey = (String)keys.next();
+                            JSONObject line = data.getJSONObject(dynamicKey);
+
+
+                            String comment = line.getString("comment");
+                            all += "\nComentario:\n"+ comment +"\n";
+
+                        }
+
+                        todo.setText(all);
+
+
+
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Error.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+                    Log.e("errorrrrrr", e.getMessage());
+                }
+            }
+        });
 
 
         Picasso.with(this).load(onanas.get(idS).getImg()).into(imgNanaProfile);

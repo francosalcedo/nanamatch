@@ -12,8 +12,9 @@ public class Nana implements Parcelable {
     private String email;
     private String name;
     private String last_name;
-    private int info;
-    private int img;
+    private String info;
+    private String img;
+    private int distrit;
 
     public Nana(){
 
@@ -51,29 +52,39 @@ public class Nana implements Parcelable {
         this.last_name = last_name;
     }
 
-    public int getInfo() {
+    public String getInfo() {
         return info;
     }
 
-    public void setInfo(int info) {
+    public void setInfo(String info) {
         this.info = info;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
+
+    public String getDistrit() {
+        if (distrit == 1){return "Miraflores";}else if(distrit == 2){
+            return "Surquillo";
+        }else{
+            return "Cercado de Lima";
+        }}
+
+    public void setDistrit(int distrit) {this.distrit = distrit;}
 
     protected Nana(Parcel in) {
         id = in.readInt();
         email = in.readString();
         name = in.readString();
         last_name = in.readString();
-        info = in.readInt();
-        img = in.readInt();
+        info = in.readString();
+        img = in.readString();
+        distrit = in.readInt();
     }
 
     @Override
@@ -87,8 +98,9 @@ public class Nana implements Parcelable {
         dest.writeString(email);
         dest.writeString(name);
         dest.writeString(last_name);
-        dest.writeInt(info);
-        dest.writeInt(img);
+        dest.writeString(info);
+        dest.writeString(img);
+        dest.writeInt(distrit);
     }
 
     @SuppressWarnings("unused")

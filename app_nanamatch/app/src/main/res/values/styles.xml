@@ -51,4 +51,37 @@
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textSize">15sp</item>
     </style>
+    <!--##########################-->
+
+    <!-- Nana Detail xml style -->
+    <style name="nineraNameProfile">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="nineraLocationProfile">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="nineraRatingProfile">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="nineraDescriptionTitle">
+        <item name="android:textColor">#000</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="nineraDescriptionComentary">
+        <item name="android:textColor">#000</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="nineraComentary">
+        <item name="android:textColor">#000</item>
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

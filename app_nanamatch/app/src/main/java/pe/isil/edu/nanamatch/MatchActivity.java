@@ -81,6 +81,8 @@ public class MatchActivity extends Activity implements View.OnClickListener{
                 String id_client = String.valueOf(client.getId());
                 String id_nana   = String.valueOf(nana.getId());
 
+                Log.d("ddd", "PTMMMMM");
+
                 send.createService(getApplicationContext(),
                         id_client,
                         id_nana,
@@ -90,6 +92,7 @@ public class MatchActivity extends Activity implements View.OnClickListener{
                     public void onSuccess(String result) {
 
                         Log.d("AQUIIII::", result);
+
 
                     }
                 });
